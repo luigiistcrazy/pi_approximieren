@@ -42,7 +42,7 @@ cd pi_approximieren
 ### 3. Build mit cargo
 
 ```
-cargo build -r main.rs
+cargo build -r
 ```
 
 ### 4. Ausführen
