@@ -44,6 +44,7 @@ fn main() {
 
     print!("\nZusammengekleistert von Luis Weitl für den Matheunterricht mit der Programmiersprache Rust. Annäherung von Pi (π) durch den Monte-Carlo-Algorithmus.\nVerwendung der Rayon Bibliothek für das parallele Rechnen (Ermöglicht die Verwendung einer sehr hohen Tropfenzahl).\nDer Quellcode kann hier gefunden werden: https://github.com/luigiistcrazy/pi_approximieren");
 
+    // Ermittel zu verwendende Threads
     let threads = rayon::current_num_threads() as u64;
     print!("\n\nZu verwendende Threads: {}", threads);
 
