@@ -1,0 +1,12 @@
+[package]
+name = "sh.luis.weitl.piapprox"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+rand = "0.8.5"
+rayon = "1.10.0"
+
+[[bin]]
+name = "sh.luis.weitl.piapprox"
+path = "main.rs"
