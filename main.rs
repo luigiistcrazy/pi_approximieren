@@ -126,7 +126,7 @@ fn main() {
     // Ausgabe der Programminformationen
     println!("\nZusammengekleistert von Luis Weitl für den Matheunterricht mit der Programmiersprache Rust.");
     println!("Annäherung von Pi (π) durch den Monte-Carlo-Algorithmus.");
-    println!("Implementiert in Rust mit der Rayon Bibliothek für die parallele Berechnung");
+    println!("Implementiert in Rust mit der Rayon Bibliothek für die parallele Berechnung.");
     println!("Der Quellcode kann hier gefunden werden: https://github.com/luigiistcrazy/pi_approximieren");
     println!("\nVerfügbare Threads: {}", rayon::current_num_threads());
 
