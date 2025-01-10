@@ -78,7 +78,7 @@ fn berechne_pi() -> Result<Ergebnis, &'static str> {
         DEFAULT_TROPFEN
     });
     
-    if get_user_input("\nMöchtest du mit der Berechnung fortfahren? (Y/n): ")
+    if get_user_input("\nMöchtest du mit der Berechnung fortfahren? (y/n): ")
         .to_lowercase()
         .starts_with('n') {
         return Err("Berechnung abgebrochen.");
@@ -98,11 +98,9 @@ fn berechne_pi() -> Result<Ergebnis, &'static str> {
 }
 
 fn main() {
-    println!("\nZusammengekleistert von Luis Weitl für den Matheunterricht mit der Programmiersprache Rust.");
-    println!("Annäherung von Pi (π) durch den Monte-Carlo-Algorithmus.");
-    println!("Implementiert in Rust mit der Rayon Bibliothek für die parallele Berechnung");
-    println!("Der Quellcode kann hier gefunden werden: https://github.com/luigiistcrazy/pi_approximieren");
-    println!("\nVerfügbare Threads: {}", rayon::current_num_threads());
+    println!("");
+    println!("Implementiert in Rust mit Rayon für parallele Berechnung");
+    println!("Verfügbare Threads: {}", rayon::current_num_threads());
 
     match berechne_pi() {
         Ok(ergebnis) => {
