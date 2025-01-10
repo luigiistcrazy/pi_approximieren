@@ -84,7 +84,7 @@ fn validate_tropfenzahl(input: &str) -> Result<u64, &'static str> {
     match input.parse::<u64>() {
         Ok(n) if n >= MIN_TROPFEN => Ok(n),
         Ok(_) => Err("Tropfenzahl muss mindestens 1000 sein."),
-        Err(_) => Err("Ungültige Eingabe. Bitte geben Sie eine ganze Zahl ein."),
+        Err(_) => Err("Ungültige Eingabe. Bitte gib eine ganze Zahl ein (z.B. 1000000."),
     }
 }
 
