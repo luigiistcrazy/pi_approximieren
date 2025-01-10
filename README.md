@@ -4,9 +4,9 @@
 
 ### 1. Binärdatei herunterladen
 
-[Windows](placeholder)
+[Windows](https://github.com/luigiistcrazy/pi_approximieren/releases/download/release/Pi-approximieren.exe)
 
-[Linux](placeholder)
+[Linux](https://github.com/luigiistcrazy/pi_approximieren/releases/download/release/Pi-approximieren)
 
 ### 2. Ausführen
 
