@@ -14,7 +14,7 @@ const CHUNK_SIZE: u64 = 10_000;          // Minimale Chunk-Größe für parallel
 // Struktur zur Speicherung der Berechnungsergebnisse
 #[derive(Debug)]
 struct Ergebnis {
-    pi_approx: f64,              // Approximierter Pi-Wert
+    pi_approx: f64,              // Angenäherter Pi Wert
     dauer: std::time::Duration,  // Berechnungsdauer
     tropfenzahl: u64,            // Anzahl verwendeter Punkte
     threads: usize,              // Anzahl verwendeter Threads
