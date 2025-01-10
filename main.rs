@@ -1,5 +1,5 @@
-// Externe Bibliotheken für Zufallszahlen, parallele Verarbeitung und Zeitmessung
-use rand::Rng;                                    // Für Zufallszahlengenerierung
+// Externe Bibliotheken
+use rand::Rng;                                   // Für Zufallszahlengenerierung
 use rayon::prelude::*;                           // Für parallele Berechnung
 use std::time::Instant;                          // Für Zeitmessung
 use std::io::{self, Write};                      // Für Ein-/Ausgabe-Operationen
@@ -14,22 +14,22 @@ const CHUNK_SIZE: u64 = 10_000;          // Minimale Chunk-Größe für parallel
 // Struktur zur Speicherung der Berechnungsergebnisse
 #[derive(Debug)]
 struct Ergebnis {
-    pi_approx: f64,         // Approximierter Pi-Wert
+    pi_approx: f64,              // Approximierter Pi-Wert
     dauer: std::time::Duration,  // Berechnungsdauer
-    tropfenzahl: u64,       // Anzahl verwendeter Punkte
-    threads: usize,         // Anzahl verwendeter Threads
+    tropfenzahl: u64,            // Anzahl verwendeter Punkte
+    threads: usize,              // Anzahl verwendeter Threads
 }
 
-// Hauptfunktion zur Pi-Approximation mittels Monte-Carlo-Methode
-// Mathematische Grundlage:
+// Hauptfunktion zur Pi-annäherung mit der Monte-Carlo Methode
+// Funktion:
 // - Verhältnis der Fläche eines Viertelkreises zur Fläche eines Quadranten
 // - A_Kreis / A_Quadrat = π/4
 // - Daraus folgt: π ≈ 4 * (Punkte im Kreis / Gesamtpunkte)
 fn approximiere_pi(tropfenzahl: u64) -> f64 {
-    let threads = rayon::current_num_threads();  // Ermittle verfügbare Thread-Anzahl
-    let counter = Arc::new(AtomicU64::new(0));  // Thread-sicherer Zähler für Treffer im Kreis
+    let threads = rayon::current_num_threads();  // Ermittle verfügbare Threads
+    let counter = Arc::new(AtomicU64::new(0));   // Thread-sicherer Zähler für Treffer im Kreis
     
-    // Berechne optimale Chunk-Größe für Load Balancing
+    // Berechne optimale Chunk Größe für Load Balancing
     // - Mindestens CHUNK_SIZE (10.000)
     // - Maximal tropfenzahl
     // - Ziel: ca. 10 Chunks pro Thread
@@ -37,7 +37,7 @@ fn approximiere_pi(tropfenzahl: u64) -> f64 {
         .max(CHUNK_SIZE)
         .min(tropfenzahl);
     
-    // Erstelle Vektor mit Start-Indizes für jeden Chunk
+    // Erstelle Vektor mit Start Indizes für jeden Chunk
     let chunks: Vec<u64> = (0..tropfenzahl)
         .step_by(chunk_size as usize)
         .collect();
@@ -45,7 +45,7 @@ fn approximiere_pi(tropfenzahl: u64) -> f64 {
     // Parallele Verarbeitung der Chunks
     chunks.par_iter()  // Parallelisierung mittels Rayon
         .for_each(|&start| {
-            let mut rng = rand::thread_rng();  // Thread-lokaler Zufallszahlengenerator
+            let mut rng = rand::thread_rng();  // Thread lokaler Zufallszahlengenerator
             let mut local_count = 0;           // Lokaler Zähler für diesen Chunk
             let end = (start + chunk_size).min(tropfenzahl);
             
