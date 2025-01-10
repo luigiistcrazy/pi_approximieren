@@ -80,5 +80,5 @@ fn main() {
 
     // Gib die berechnete Näherung und die Dauer der Berechnung aus
     println!("Annährung von π mit {} Tropfen: {}", tropfenzahl, pi_approx);
-    println!("Berechnung abgeschlossen in {:.2?} Sekunden.", dauer);
+    println!("Berechnung abgeschlossen in {:.2?}.", dauer);
 }
