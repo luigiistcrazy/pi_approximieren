@@ -6,7 +6,3 @@ edition = "2021"
 [dependencies]
 rand = "0.8.5"
 rayon = "1.10.0"
-
-[[bin]]
-name = "Pi-approximieren"
-path = "main.rs"

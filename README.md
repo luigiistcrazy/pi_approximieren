@@ -1,4 +1,4 @@
-# Pi approximieren mit hilfe des Monte-Carlo-Algorithmus
+# Pi approximieren mit Hilfe des Monte-Carlo-Algorithmus
 
 ## Ausführung
 
