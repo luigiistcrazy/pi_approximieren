@@ -245,8 +245,8 @@ fn main() -> io::Result<()> {
 
     // Wartet auf den Abschluss des Berechnungs-Threads.
     match berechnungs_handle.join() {
-        Ok(_) => println!("Berechnungs-Thread abgeschlossen"), // Erfolgreicher Abschluss der Berechnung.
-        Err(e) => eprintln!("Berechnungs-Thread ist mit einem Fehler beendet: {:?}", e), // Fehlermeldung.
+        Ok(_) => println!("Berechnungs-Thread abgeschlossen\n"), // Erfolgreicher Abschluss der Berechnung.
+        Err(e) => eprintln!("Berechnungs-Thread ist mit einem Fehler beendet: {:?}\n", e), // Fehlermeldung.
     }
 
     // Aktualisiere die Fortschrittsanzeige ein letztes Mal nach Abschluss der Berechnung.
@@ -265,17 +265,17 @@ fn main() -> io::Result<()> {
     let gesamt_punkte = rechner.punkte_gesamt.load(Ordering::Relaxed);
 
     // Gibt die berechneten Ergebnisse an die Konsole aus:
-    println!("\nErgebnisse:");
-    println!("π Annäherung:  {:.10}", pi_approximation);      // Die approximierte Annäherung von π.
+    println!("\nErgebnisse:\n");
+    println!("π Annäherung: {:.10}", pi_approximation);       // Die approximierte Annäherung von π.
     println!("Eigentliches π: {:.10}", std::f64::consts::PI); // Der tatsächliche Wert von π aus den Rust-Konstanten.
     println!(
-        "Abweichung:      {:.10}",
+        "Abweichung: {:.10}",
         (pi_approximation - std::f64::consts::PI).abs()       // Die Differenz zwischen berechnetem und tatsächlichem π.
     );
-    println!("Verwendete Punkte:    {}", gesamt_punkte);      // Gesamtanzahl der verarbeiteten Punkte.
+    println!("Verwendete Punkte: {}", gesamt_punkte);         // Gesamtanzahl der verarbeiteten Punkte.
     println!("Berechnungszeit: {:.2?}", dauer);               // Gesamtdauer der Berechnung.
     println!(
-        "Punkte pro Sekunde:  {:.2e}",                        // Berechnete Leistung basierend auf Punkten pro Sekunde.
+        "Punkte pro Sekunde: {:.2e}",                         // Berechnete Leistung basierend auf Punkten pro Sekunde.
         gesamt_punkte as f64 / dauer.as_secs_f64()
     );
 
